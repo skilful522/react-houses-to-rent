@@ -1,0 +1,10 @@
+#searchContainer {
+    justify-content: center;
+    display: flex;
+    border-top: 5px solid rosybrown;
+}
+
+#searchInput {
+    margin: 5px;
+    font-size: 1em;
+}
