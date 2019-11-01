@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Header } from "./components/Header/Header";
-import { Background } from "./components/Background/Background";
+import {AdsList} from "./components/AdsList/AdsList";
 
 const App = () => {
   const [flats, setFlats] = useState([]);
@@ -37,7 +37,7 @@ const App = () => {
   return (
     <div className="App">
       <Header onSearchChange={handleSearch} />
-      <Background
+      <AdsList
         getFlats={handleNewFlats}
         flats={flats}
         searchInput={searchInput}
