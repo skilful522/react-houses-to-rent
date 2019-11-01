@@ -1,3 +1,4 @@
+import fetchJsonp from "fetch-jsonp";
 function dataProcessing(data, props) {
   const receivedFlats = data.response.listings;
   const flatImages = receivedFlats.map(flat => flat["img_url"]);
@@ -43,7 +44,9 @@ const dataHelper = {
     params.append("page", `1`);
     params.append("place_name", `${searchInput}`);
     return url + params;
-  }
+  },
+  fetch: (url) => fetchJsonp(url)
+  .then(response => response.json())
 };
 
 export { dataHelper, dataProcessing };
