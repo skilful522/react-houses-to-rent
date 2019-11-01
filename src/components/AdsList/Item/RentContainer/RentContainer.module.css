@@ -1,0 +1,18 @@
+.rentContainer {
+  justify-content: space-between;
+}
+.flatPriceContainer {
+  background: brown;
+  text-align: center;
+  color: snow;
+}
+.favoritesButton {
+  font-size: 1.3em;
+  color: black;
+  background: yellow;
+  outline-color: black;
+  cursor: pointer;
+  border: none;
+  margin-bottom: 50%;
+  width: 162px;
+}

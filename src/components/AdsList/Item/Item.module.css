@@ -1,0 +1,5 @@
+.flat {
+  margin: 20px 0;
+  display: flex;
+  border: 2px outset rosybrown;
+}

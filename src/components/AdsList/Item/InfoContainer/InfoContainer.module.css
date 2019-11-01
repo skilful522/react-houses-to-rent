@@ -1,0 +1,19 @@
+.flatInfoContainer {
+  display: block;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.flatTitleContainer,
+.flatPropertyContainer,
+.flatSummaryContainer,
+.flatMoreDescription {
+  font-size: 1em;
+  padding: 8px;
+}
+
+.flatMoreDescription {
+  cursor: pointer;
+  visibility: visible;
+  color: cornflowerblue;
+}
