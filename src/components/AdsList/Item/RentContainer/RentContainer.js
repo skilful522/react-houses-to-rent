@@ -2,7 +2,6 @@ import React from "react";
 import style from "./RentContainer.module.css";
 
 const RentContainer = ({ price }) => {
-  const handleAddFavorite = () => {};
   return (
     <div className={style.rentContainer}>
       <div className={style.flatPriceContainer}>{price}</div>

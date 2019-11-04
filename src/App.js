@@ -18,20 +18,14 @@ const App = () => {
 
     for (let i = 0; i < images.length; i++) {
       let flat = {
-        image: "",
-        title: "",
-        property: "",
-        summary: "",
-        price: "",
-        key: ""
+        image: images[i],
+        title: titles[i],
+        property: properties[i],
+        summary: summaries[i],
+        price: prices[i],
+        key: uuidv4()
       };
 
-      flat.image = images[i];
-      flat.title = titles[i];
-      flat.property = properties[i];
-      flat.summary = summaries[i];
-      flat.price = prices[i];
-      flat.key = uuidv4();
       flatInfo.push(flat);
     }
     setFlats(flatInfo);
