@@ -1,0 +1,5 @@
+#navBar {
+  justify-content: center;
+  display: flex;
+  border-top: 5px solid rosybrown;
+}

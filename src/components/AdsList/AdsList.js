@@ -3,7 +3,6 @@ import { Loader } from "./Loader/Loader";
 import { Warning } from "./Warning/Warning";
 import { Item } from "./Item/Item";
 import style from "./AdsList.module.css";
-import uuidv4 from "uuid/v4";
 import { dataHelper, dataProcessing } from "../../utils/data.helper";
 import { useState, useEffect } from "react";
 
@@ -27,7 +26,6 @@ const useFetch = (url, props) => {
   useEffect(() => {
     fetchData();
   }, [url]);
-
   return { data, loading, error };
 };
 
@@ -45,12 +43,15 @@ const AdsList = props => {
     <div id={style["adsList"]}>
       {props.flats.map(item => (
         <Item
-          image={item.flatImage}
-          title={item.flatTitle}
-          property={item.flatProperty}
-          summary={item.flatSummary}
-          price={item.flatPrice}
-          key={uuidv4()}
+          image={item.image}
+          title={item.title}
+          property={item.property}
+          summary={item.summary}
+          price={item.price}
+          key={item.key}
+          id={item.key}
+          item={item}
+          getItem={props.getItem}
         />
       ))}
     </div>

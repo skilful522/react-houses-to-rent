@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./Search.module.css";
-import { FavoriteListButton } from "../Header/FavoriteListButton/FavoriteListButton";
 import uuidv4 from "uuid/v4";
 
 const Search = props => {
@@ -9,6 +8,7 @@ const Search = props => {
       props.onSearchChange(event.target.value);
     }
   };
+
   return (
     <div id={style["searchContainer"]}>
       <input
@@ -17,7 +17,6 @@ const Search = props => {
         key={uuidv4()}
         onKeyDown={getSearchInput}
       />
-      <FavoriteListButton />
     </div>
   );
 };

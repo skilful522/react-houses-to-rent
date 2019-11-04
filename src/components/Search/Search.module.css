@@ -1,10 +1,9 @@
 #searchContainer {
-    justify-content: center;
-    display: flex;
-    border-top: 5px solid rosybrown;
+  justify-content: center;
+  display: flex;
 }
 
 #searchInput {
-    margin: 5px;
-    font-size: 1em;
+  margin: 5px;
+  font-size: 1em;
 }

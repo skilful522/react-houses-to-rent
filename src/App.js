@@ -1,29 +1,31 @@
 import React from "react";
 import { useState } from "react";
 import { Header } from "./components/Header/Header";
-import {AdsList} from "./components/AdsList/AdsList";
+import { AdsList } from "./components/AdsList/AdsList";
+import { FavoriteList } from "./components/FavoriteList/FavoriteList";
+import { ItemDetail } from "./components/ItemDetail/ItemDetail";
+import { NotFoundPage } from "./components/Header/NavBar/NotFoundPage/NotFoundPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import uuidv4 from "uuid/v4";
 
 const App = () => {
   const [flats, setFlats] = useState([]);
   const [searchInput, setSearchInput] = useState("London");
+  const [item, setItem] = useState(null);
   const handleNewFlats = newFlats => {
     let flatInfo = [];
     let [images, titles, properties, summaries, prices] = [...newFlats];
 
     for (let i = 0; i < images.length; i++) {
       let flat = {
-        flatImage: "",
-        flatTitle: "",
-        flatProperty: "",
-        flatSummary: "",
-        flatPrice: ""
+        image: images[i],
+        title: titles[i],
+        property: properties[i],
+        summary: summaries[i],
+        price: prices[i],
+        key: uuidv4()
       };
 
-      flat.flatImage = images[i];
-      flat.flatTitle = titles[i];
-      flat.flatProperty = properties[i];
-      flat.flatSummary = summaries[i];
-      flat.flatPrice = prices[i];
       flatInfo.push(flat);
     }
     setFlats(flatInfo);
@@ -34,16 +36,36 @@ const App = () => {
     }
     setSearchInput(searchInput);
   };
+  const handleItemPage = item => {
+    setItem(item);
+  };
   return (
-    <div className="App">
-      <Header onSearchChange={handleSearch} />
-      <AdsList
-        getFlats={handleNewFlats}
-        flats={flats}
-        searchInput={searchInput}
-      />
-    </div>
+    <Router>
+      <div className="App">
+        <Header onSearchChange={handleSearch} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <AdsList
+                getFlats={handleNewFlats}
+                flats={flats}
+                searchInput={searchInput}
+                getItem={handleItemPage}
+              />
+            )}
+          />
+          <Route exact path="/favorite" component={FavoriteList} />
+          <Route
+            exact
+            path="/flats/:id"
+            render={() => <ItemDetail item={item} />}
+          />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
-
 export default App;

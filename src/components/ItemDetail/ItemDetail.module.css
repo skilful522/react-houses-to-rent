@@ -1,3 +1,9 @@
+#item {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+  background: seashell;
+}
 .flatInfoContainer {
   display: block;
   justify-content: space-between;
@@ -6,15 +12,7 @@
 
 .flatTitleContainer,
 .flatPropertyContainer,
-.flatSummaryContainer,
-.flatMoreDescription {
+.flatSummaryContainer {
   font-size: 1em;
   padding: 8px;
-}
-
-.flatMoreDescription {
-  cursor: pointer;
-  visibility: visible;
-  text-decoration: none;
-  color: cornflowerblue;
 }
