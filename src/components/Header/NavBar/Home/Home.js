@@ -1,12 +1,12 @@
 import React from "react";
 import style from "./Home.module.css";
-import { A } from "hookrouter";
+import { Link } from "react-router-dom";
 
 const Home = () => (
   <div id={style["homeContainer"]}>
-    <A href={"/"} id={style["home"]}>
+    <Link to="/" id={style["home"]}>
       Home
-    </A>
+    </Link>
   </div>
 );
 

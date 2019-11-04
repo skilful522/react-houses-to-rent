@@ -5,28 +5,8 @@ import { AdsList } from "./components/AdsList/AdsList";
 import { FavoriteList } from "./components/FavoriteList/FavoriteList";
 import { ItemDetail } from "./components/ItemDetail/ItemDetail";
 import { NotFoundPage } from "./components/Header/NavBar/NotFoundPage/NotFoundPage";
-import { useRoutes } from "hookrouter";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import uuidv4 from "uuid/v4";
-
-const routes = {
-  "/": () => (handleNewFlats, flats, searchInput, handleItemPage) => (
-    <AdsList
-      getFlats={handleNewFlats}
-      flats={flats}
-      searchInput={searchInput}
-      getItem={handleItemPage}
-    />
-  ),
-  "/flats/:id": () => (
-    handleNewFlats,
-    flats,
-    searchInput,
-    handleItemPage,
-    item
-  ) => <ItemDetail item={item} />,
-  "/favorite": () => () => <FavoriteList />,
-  "*": () => () => <NotFoundPage />
-};
 
 const App = () => {
   const [flats, setFlats] = useState([]);
@@ -65,12 +45,33 @@ const App = () => {
   const handleItemPage = item => {
     setItem(item);
   };
-  const routeResult = useRoutes(routes);
   return (
-    <div className="App">
-      <Header onSearchChange={handleSearch} />
-      {routeResult(handleNewFlats, flats, searchInput, handleItemPage, item)}
-    </div>
+    <Router>
+      <div className="App">
+        <Header onSearchChange={handleSearch} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <AdsList
+                getFlats={handleNewFlats}
+                flats={flats}
+                searchInput={searchInput}
+                getItem={handleItemPage}
+              />
+            )}
+          />
+          <Route exact path="/favorite" component={FavoriteList} />
+          <Route
+            exact
+            path="/flats/:id"
+            render={() => <ItemDetail item={item} />}
+          />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 export default App;

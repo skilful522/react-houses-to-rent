@@ -1,12 +1,12 @@
 import React from "react";
 import style from "./Favorite.module.css";
-import { A } from "hookrouter";
+import { Link } from "react-router-dom";
 
 const Favorite = () => (
   <div id={style["favoriteContainer"]}>
-    <A href={"/favorite"} id={style["favorite"]}>
+    <Link to="/favorite" id={style["favorite"]}>
       FavList
-    </A>
+    </Link>
   </div>
 );
 
