@@ -1,0 +1,12 @@
+#notFoundPageContainer {
+  margin: 0 auto;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: seashell;
+}
+#notFoundPage {
+  font-family: "Magic Wix Script RUS";
+  font-size: 6em;
+}

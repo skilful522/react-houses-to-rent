@@ -1,0 +1,15 @@
+#favoriteContainer {
+  justify-content: center;
+  margin: 5px;
+  display: flex;
+}
+#favorite {
+  font-size: 1em;
+  padding: 3px;
+  color: black;
+  background: yellow;
+  outline-color: black;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}

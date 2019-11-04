@@ -1,0 +1,9 @@
+#favoriteListContainer {
+  width: 60%;
+  margin: 0 auto;
+  background: seashell;
+}
+
+h2 {
+  text-align: center;
+}

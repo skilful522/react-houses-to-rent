@@ -11,6 +11,9 @@ const Item = props => (
       property={props.property}
       title={props.title}
       summary={props.summary}
+      id={props.id}
+      item={props.item}
+      getItem={props.getItem}
     />
     <RentContainer price={props.price} />
   </div>
