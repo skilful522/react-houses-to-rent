@@ -1,18 +1,12 @@
 import React from "react";
 import style from "./NavBar.module.css";
-import { Search } from "../../Search/Search";
+import SearchContainer from "../../../containers/SearchContainer";
 import { Favorite } from "./Favorite/Favorite";
 import { Home } from "./Home/Home";
-
-const NavBar = props => (
+const NavBar = () => (
   <div id={style["navBar"]}>
     <Home />
-    <Search
-      placeholder="search"
-      onSearchChange={props.onSearchChange}
-      onChangeLocation={props.onChangeLocation}
-      history={props.history}
-    />
+    <SearchContainer />
     <Favorite />
   </div>
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./ItemDetail.module.css";
 import { ImageContainer } from "../AdsList/Item/ImageContainer/ImageContainer";
-import { RentContainer } from "../AdsList/Item/RentContainer/RentContainer";
+import RentContainer from "../../containers/RentContainer";
 
 const ItemDetail = props => (
   <div id={style["item"]}>
@@ -11,7 +11,7 @@ const ItemDetail = props => (
       <div className={style.flatPropertyContainer}>{props.item.property}</div>
       <div className={style.flatSummaryContainer}>{props.item.summary}</div>
     </div>
-    <RentContainer price={props.item.price} />
+    <RentContainer price={props.item.price} item={props.item} />
   </div>
 );
 

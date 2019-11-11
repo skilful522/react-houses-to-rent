@@ -45,8 +45,7 @@ const dataHelper = {
     params.append("place_name", `${searchInput}`);
     return url + params;
   },
-  fetch: (url) => fetchJsonp(url)
-  .then(response => response.json())
+  fetch: url => fetchJsonp(url).then(response => response.json())
 };
 
 export { dataHelper, dataProcessing };

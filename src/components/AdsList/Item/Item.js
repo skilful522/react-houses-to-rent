@@ -1,8 +1,8 @@
 import React from "react";
 import { ImageContainer } from "./ImageContainer/ImageContainer";
 import { InfoContainer } from "./InfoContainer/InfoContainer";
-import { RentContainer } from "./RentContainer/RentContainer";
 import style from "./Item.module.css";
+import RentContainer from "../../../containers/RentContainer";
 
 const Item = props => (
   <div className={style.flat}>
@@ -15,7 +15,7 @@ const Item = props => (
       item={props.item}
       getItem={props.getItem}
     />
-    <RentContainer price={props.price} />
+    <RentContainer price={props.price} item={props.item} />
   </div>
 );
 

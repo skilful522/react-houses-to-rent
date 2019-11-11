@@ -1,7 +1,22 @@
 #favoriteListContainer {
-  width: 60%;
   margin: 0 auto;
-  background: seashell;
+  width: 60%;
+}
+
+#wrapper-remove {
+  border: 3px solid black;
+  display: flex;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+}
+
+#remover {
+  color: red;
+  font-size: 1.5em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: none;
 }
 
 h2 {
