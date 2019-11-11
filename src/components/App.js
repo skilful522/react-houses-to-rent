@@ -1,17 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import { Header } from "./components/Header/Header";
-import { AdsList } from "./components/AdsList/AdsList";
-import { FavoriteList } from "./components/FavoriteList/FavoriteList";
-import { ItemDetail } from "./components/ItemDetail/ItemDetail";
-import { NotFoundPage } from "./components/Header/NavBar/NotFoundPage/NotFoundPage";
+import { Header } from "./Header/Header";
+import { AdsList } from "./AdsList/AdsList";
+import { ItemDetail } from "./ItemDetail/ItemDetail";
+import { NotFoundPage } from "./Header/NavBar/NotFoundPage/NotFoundPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import uuidv4 from "uuid/v4";
+import FavoriteListContainer from "../containers/FavoriteListContainer";
 
-const App = () => {
+const App = props => {
+  const { searchInput } = props;
   const [flats, setFlats] = useState([]);
-  const [searchInput, setSearchInput] = useState("London");
   const [item, setItem] = useState(null);
+  const [favItems, setFavItem] = useState([]);
   const handleNewFlats = newFlats => {
     let flatInfo = [];
     let [images, titles, properties, summaries, prices] = [...newFlats];
@@ -23,26 +24,21 @@ const App = () => {
         property: properties[i],
         summary: summaries[i],
         price: prices[i],
-        key: uuidv4()
+        key: uuidv4(),
+        isAdded: false
       };
 
       flatInfo.push(flat);
     }
     setFlats(flatInfo);
+    props.getFlats(flatInfo);
   };
-  const handleSearch = searchInput => {
-    if (searchInput === "") {
-      searchInput = "London";
-    }
-    setSearchInput(searchInput);
-  };
-  const handleItemPage = item => {
-    setItem(item);
-  };
+  const handleItemPage = item => setItem(item);
+  const handleFavItem = favItem => setFavItem([favItem, ...favItems]);
   return (
     <Router>
       <div className="App">
-        <Header onSearchChange={handleSearch} />
+        <Header />
         <Switch>
           <Route
             exact
@@ -53,10 +49,11 @@ const App = () => {
                 flats={flats}
                 searchInput={searchInput}
                 getItem={handleItemPage}
+                getFavItem={handleFavItem}
               />
             )}
           />
-          <Route exact path="/favorite" component={FavoriteList} />
+          <Route exact path="/favorite" component={FavoriteListContainer} />
           <Route
             exact
             path="/flats/:id"
@@ -68,4 +65,5 @@ const App = () => {
     </Router>
   );
 };
-export default App;
+
+export { App };

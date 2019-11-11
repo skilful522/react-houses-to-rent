@@ -16,3 +16,13 @@
   margin-bottom: 50%;
   width: 162px;
 }
+.activeFavoritesButton{
+  font-size: 1.3em;
+  color: snow;
+  pointer-events:none;
+  background: brown;
+  outline: none;
+  border: none;
+  margin-bottom: 50%;
+  width: 162px;
+}

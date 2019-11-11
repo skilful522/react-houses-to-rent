@@ -52,6 +52,7 @@ const AdsList = props => {
           id={item.key}
           item={item}
           getItem={props.getItem}
+          getFavItem={props.getFavItem}
         />
       ))}
     </div>
