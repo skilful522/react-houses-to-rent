@@ -1,4 +1,4 @@
-import { SET_FLAT_TO_FAV_LIST } from "../actions/RentActions";
+import {APP_ACTIONS} from "../actionTypes/actionTypes";
 
 const initialState = {
   favoriteFlats: []
@@ -6,7 +6,7 @@ const initialState = {
 
 function rentReducer(state = initialState, action) {
   switch (action.type) {
-    case SET_FLAT_TO_FAV_LIST:
+    case APP_ACTIONS.SET_FLAT_TO_FAV_LIST:
       return {
         ...state,
         favoriteFlats: [...state.favoriteFlats, action.payload]

@@ -1,5 +1,4 @@
-import { GET_FLATS } from "../actions/AppActions";
-import { UPDATE_FLATS } from "../actions/AppActions";
+import { APP_ACTIONS } from "../actionTypes/actionTypes";
 
 const initialState = {
   flats: []
@@ -7,9 +6,9 @@ const initialState = {
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_FLATS:
+    case APP_ACTIONS.GET_FLATS:
       return { ...state, flats: action.payload };
-    case UPDATE_FLATS:
+    case APP_ACTIONS.UPDATE_FLATS:
       return { ...state, flats: action.payload };
     default:
       return state;

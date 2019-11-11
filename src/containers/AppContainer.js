@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { App } from "../components/App";
-import { getFlats } from "../actions/AppActions";
+import { getFlats } from "../redux/actions/AppActions";
 
 const AppContainer = props => {
   const { search, getFlats } = props;

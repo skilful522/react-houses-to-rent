@@ -1,10 +1,9 @@
-const GET_FLATS = "GET_FLATS";
-const UPDATE_FLATS = "UPDATE_FLATS";
+import { APP_ACTIONS } from "../actionTypes/actionTypes";
 
 function getFlats(flats) {
   return dispatch => {
     dispatch({
-      type: GET_FLATS,
+      type: APP_ACTIONS.GET_FLATS,
       payload: flats
     });
   };
@@ -13,10 +12,10 @@ function getFlats(flats) {
 function updateFlats(flats) {
   return dispatch => {
     dispatch({
-      type: UPDATE_FLATS,
+      type: APP_ACTIONS.UPDATE_FLATS,
       payload: flats
     });
   };
 }
 
-export { GET_FLATS, getFlats, UPDATE_FLATS, updateFlats };
+export { getFlats, updateFlats };

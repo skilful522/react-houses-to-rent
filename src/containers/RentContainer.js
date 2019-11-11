@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Rent } from "../components/AdsList/Item/Rent/Rent";
-import { setFlat } from "../actions/RentActions";
-import { updateFlats } from "../actions/AppActions";
+import { setFlat } from "../redux/actions/RentActions";
+import { updateFlats } from "../redux/actions/AppActions";
 
 const RentContainer = props => {
   const { setFlat, price, flats, updateFlats } = props;
