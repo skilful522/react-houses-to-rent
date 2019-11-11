@@ -1,12 +1,12 @@
 import { APP_ACTIONS } from "../actionTypes/actionTypes";
 
-function setFlat(flat) {
+function removeFlat(flat) {
   return dispatch => {
     dispatch({
-      type: APP_ACTIONS.SET_FLAT_TO_FAV_LIST,
+      type: APP_ACTIONS.REMOVE_FLAT_FROM_FAV_LIST,
       payload: flat
     });
   };
 }
 
-export { setFlat };
+export { removeFlat };

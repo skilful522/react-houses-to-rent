@@ -1,4 +1,4 @@
-import {APP_ACTIONS} from "../actionTypes/actionTypes";
+import { APP_ACTIONS } from "../actionTypes/actionTypes";
 
 const initialState = {
   favoriteFlats: []
