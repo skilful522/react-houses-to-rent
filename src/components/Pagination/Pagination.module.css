@@ -1,0 +1,42 @@
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  cursor: pointer;
+  background: snow;
+  border: 1px solid brown;
+  padding: 5px;
+  font-size: 2em;
+}
+.page:hover {
+  background: yellow;
+  color: snow;
+}
+.activePage {
+  background: yellow;
+  color: snow;
+  border: 1px solid brown;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 2em;
+}
+
+#navigation-button {
+  color: brown;
+  padding: 11px 0;
+  margin: 0 5px;
+  font-size: 1.5em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+#navigation-button:hover {
+   background: brown;
+   color: snow;
+ }
+

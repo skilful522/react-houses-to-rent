@@ -7,7 +7,11 @@ const Search = props => {
     if (event.keyCode === 13) {
       if (event.target.value === "") {
         props.getSearchInput("London");
+        props.setCurrentPage(1);
+        props.setPortionNumber(1);
       } else {
+        props.setCurrentPage(1);
+        props.setPortionNumber(1);
         props.getSearchInput(event.target.value);
       }
     }

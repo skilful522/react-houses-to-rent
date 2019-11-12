@@ -16,6 +16,12 @@ const useFetch = (url, props) => {
         setError(true);
         setLoading(false);
       } else {
+        let totalPages = data.response["total_pages"];
+
+        if (totalPages > 100) {
+          totalPages = 100;
+        }
+        props.setTotalPages(totalPages);
         setError(false);
         setData(data);
         dataProcessing(data, props);
