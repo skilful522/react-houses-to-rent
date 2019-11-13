@@ -5,11 +5,9 @@ import uuidv4 from "uuid/v4";
 const Search = props => {
   const getSearchInput = event => {
     if (event.keyCode === 13) {
-      if (event.target.value === "") {
-        props.getSearchInput("London");
-      } else {
-        props.getSearchInput(event.target.value);
-      }
+      props.setCurrentPage(1);
+      props.setPortionNumber(1);
+      props.getSearchInput(event.target.value);
     }
   };
 

@@ -12,10 +12,19 @@ const useFetch = (url, props) => {
   const [error, setError] = useState(false);
   const fetchData = () => {
     dataHelper.fetch(url).then(data => {
-      if (data.response["application_response_text"] === "unknown location") {
+      if (
+        data.response["application_response_text"] === "unknown location" ||
+        data.response["application_response_text"] === "bad request"
+      ) {
         setError(true);
         setLoading(false);
       } else {
+        let totalPages = data.response["total_pages"];
+
+        if (totalPages > 100) {
+          totalPages = 100;
+        }
+        props.setTotalPages(totalPages);
         setError(false);
         setData(data);
         dataProcessing(data, props);
@@ -32,7 +41,6 @@ const useFetch = (url, props) => {
 const AdsList = props => {
   const url = dataHelper.constructQueryParams(props);
   const { loading, error } = useFetch(url, props);
-
   if (loading) {
     return <Loader />;
   }

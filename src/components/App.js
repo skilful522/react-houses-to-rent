@@ -4,6 +4,7 @@ import { Header } from "./Header/Header";
 import { AdsList } from "./AdsList/AdsList";
 import { ItemDetail } from "./ItemDetail/ItemDetail";
 import { NotFoundPage } from "./Header/NavBar/NotFoundPage/NotFoundPage";
+import { Pagination } from "./Pagination/Pagination";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import uuidv4 from "uuid/v4";
 import FavoriteListContainer from "../containers/FavoriteListContainer";
@@ -13,6 +14,7 @@ const App = props => {
   const [flats, setFlats] = useState([]);
   const [item, setItem] = useState(null);
   const [favItems, setFavItem] = useState([]);
+  let [portionNumber, setPortionNumber] = useState(1);
   const handleNewFlats = newFlats => {
     let flatInfo = [];
     let [images, titles, properties, summaries, prices] = [...newFlats];
@@ -38,7 +40,7 @@ const App = props => {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header setPortionNumber={setPortionNumber} />
         <Switch>
           <Route
             exact
@@ -48,8 +50,11 @@ const App = props => {
                 getFlats={handleNewFlats}
                 flats={flats}
                 searchInput={searchInput}
+                currentPage={props.currentPage}
                 getItem={handleItemPage}
                 getFavItem={handleFavItem}
+                pageSize={props.pageSize}
+                setTotalPages={props.setTotalPages}
               />
             )}
           />
@@ -61,6 +66,15 @@ const App = props => {
           />
           <Route component={NotFoundPage} />
         </Switch>
+        <Pagination
+          pageSize={props.pageSize}
+          portionNumber={portionNumber}
+          setPortionNumber={setPortionNumber}
+          setTotalPages={props.setTotalPages}
+          currentPage={props.currentPage}
+          totalPages={props.totalPages}
+          setCurrentPage={props.setCurrentPage}
+        />
       </div>
     </Router>
   );
