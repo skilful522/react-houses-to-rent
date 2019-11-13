@@ -15,9 +15,6 @@ const Pagination = React.memo(
     let portionCount = Math.ceil(totalPages / portionSize);
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(i);
-    }
     const handlePageClick = useCallback(
       page => {
         setCurrentPage(page);
@@ -27,9 +24,14 @@ const Pagination = React.memo(
     const increasePortionNumber = useCallback(() => {
       setPortionNumber(portionNumber => portionNumber + 1);
     }, [setPortionNumber]);
+
     const decreasePortionNumber = useCallback(() => {
       setPortionNumber(portionNumber => portionNumber - 1);
     }, [setPortionNumber]);
+
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i);
+    }
     return (
       <nav id={style["pagination"]}>
         {portionNumber > 1 && (
