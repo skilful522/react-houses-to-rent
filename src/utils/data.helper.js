@@ -35,7 +35,6 @@ const dataHelper = {
   constructQueryParams: ({ searchInput, currentPage }) => {
     const url = "https://api.nestoria.co.uk/api?";
     let params = new URLSearchParams();
-
     params.append("encoding", "json");
     params.append("pretty", "1");
     params.append("action", "search_listings");

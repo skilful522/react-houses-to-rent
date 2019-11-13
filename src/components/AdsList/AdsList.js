@@ -12,7 +12,10 @@ const useFetch = (url, props) => {
   const [error, setError] = useState(false);
   const fetchData = () => {
     dataHelper.fetch(url).then(data => {
-      if (data.response["application_response_text"] === "unknown location") {
+      if (
+        data.response["application_response_text"] === "unknown location" ||
+        data.response["application_response_text"] === "bad request"
+      ) {
         setError(true);
         setLoading(false);
       } else {
@@ -38,7 +41,6 @@ const useFetch = (url, props) => {
 const AdsList = props => {
   const url = dataHelper.constructQueryParams(props);
   const { loading, error } = useFetch(url, props);
-
   if (loading) {
     return <Loader />;
   }
